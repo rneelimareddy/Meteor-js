@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Other DBs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top"><!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+      
+    <div id="logo" class="fl_left ribbon animated fadeInDown">
+        <a href="../Meteor-js/index.html"><img src="..\images\demo\meteor.jpg"></a>
+    </div>
+    <nav id="mainav" class="fl_right">
+      <ul class="clear">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active"><a class="drop" href="#">Introduction</a>
+          <ul>
+            <li><a href="/Users/florahelan/Desktop/Meteor_project2/pages/Meteor.html">Meteor js</a></li>
+            <li><a href="mongodb.html">MongoDB</a></li>
+            <li><a href="ddp.html">DDP with Meteor</a></li>
+            <li><a href="otherDbs.html">Other Databases</a></li>
+          </ul>
+        </li>
+        <li><a class="drop" href="#">Tutorials</a>
+          <ul>
+            <li><a href="/Users/florahelan/Desktop/Meteor_project2/pages/Meteor_tutorials.html">Meteor</a></li>
+            <li><a href="#">MongoDB</a></li>
+            <li><a href="#">DDP</a></li>
+            <li><a href="#">Server Side</a></li>
+            <li><a href="#">PostgreSQL</a></li>
+            <li><a href="#">Neo4j</a></li>
+            <li><a href="#">RethinkDB</a></li>
+            <li><a href="#">Oracle</a></li>
+            <li><a href="#">AlaSQL</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Installation</a></li>
+        <li><a href="#">Future</a></li>
+      </ul>
+    </nav>
+    <!-- ################################################################################################ -->
+  </header>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <div id="breadcrumb" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Tutorials</a></li>
+      <li><a href="#">Meteor</a></li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="content"> 
+      <!-- ################################################################################################ -->
+      
+       <h1 style="color:red" class="animated fadeInDown"><b>Meteor </b></h1>
+       <img class="imgr borderedbox inspace-5 animated fadeInRight" src="/Users/florahelan/Desktop/Meteor_project2/images/meteor_pics/Meteor1.png">
+
+
+
+      <p> In this page, we will walk through the basic a simple application that prints “Welcome to CS6320” using Meteor. </p>
+
+      <h3 style="color:red"><b> Setting up the environment</b></h3>
+
+       <p>To begin Meteor application, Install Meteor by following the instruction given here <a href="home/installation"> <b>Install </b></a> </p>
+
+       <h3 style="color:red"><b>1. Create a Meteor Application</b></h3>
+
+<p> Creating a simple Application to print “Welcome to CS6320” using Meteor. Navigate to a home directory in the terminal and run the following command. <b>first_app</b> is the name of the folder.</p>
+<div id="comments">
+<ul><li>
+<div class="comcont">
+<p> <b> <i> $ meteor create first_app </i> </b></p> 
+</div>
+</li></ul>
+</div>
+Now, change the directory to first_app 
+
+<div id="comments">
+<ul><li>
+<div class="comcont">
+<p> <b> <i> $ cd first_app </i> </b></p>
+</div>
+</li></ul>
+</div>
+<p> Below is the folder structure that will be created for first_app.</p>
+
+<p> <b>/client</b> - stores all code that runs on client(localhost)</p>
+<p> <b>/server</b> - where the logic which runs on the server should go </p>
+<p> <b>/public</b> - put all static files over here </p>
+
+<p>
+  <table>
+  <tr>
+    <td>client/main.js</td>
+    <td>- loaded on the client by JavaScript entry point</td>
+  </tr>
+  <tr>
+    <td>client/main.html </td>
+    <td>- To defines view templates in HTML file</td>
+  </tr>
+  <tr>
+    <td>client/main.css </td>
+    <td>- To define app style in CSS</td>
+  </tr>
+  <tr>
+    <td>server/main.js </td>
+    <td>- loaded on the server by JavaScript entry point</td>
+  </tr>
+  <tr>
+    <td>package.json  </td>
+    <td>- Installing NPM packages</td>
+  </tr>
+  <tr>
+    <td>meteor </td>
+    <td>- Internal Meteor files</td>
+  </tr>
+  <tr>
+    <td>.gitignore  </td>
+    <td>- control file for git</td>
+  </tr>
+</table>
+ </p> 
+ 
+ <h3 style="color:red"><b>2. Review the generated files that is created</b></h3>
+
+<p><b> 2.1 main.js </b></p>
+
+<p align="justify" >Once you open main.js file in text editor, you can find JavaScript file that has the script for both client and server( “if (Meteor.isClient)” and “if (Meteor.isServer)” ). As meteor is a full-stack framework, the code that you write is run on both the server and the client. “Session.setDefault” call initializes a section variable called “counter” in the browser, which acts like a global in meteor. “Template.hello.helpers” has the “helper” called “counter” which grabs the session variable’s value and returns it. The session variable is not showing directly in “{{counter}}”. The helper is “reactive”. Meteor and Blaze automatically reruns when session variable gets changed. Meteor re-runs this helper function and Blaze updates the browser with the new content. In this example “click button” is used to identify the event by event type and tells Meteor what that event should do.</p>
+<div id="comments">
+<ul><li>
+<div class="comcont">
+<p> <b> first_app/client/main.js </b> </p>
+  <pre>
+    <code style="color:#0000FF";>
+      
+import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
+
+import './main.html';
+
+if (Meteor.isClient) {
+  // counter starts at 0
+  Session.setDefault('counter', 0);
+
+Template.hello.onCreated(function helloOnCreated() {
+  // counter starts at 0
+  this.counter = new ReactiveVar(0);
+});
+
+Template.hello.helpers({
+  counter() {
+    return Template.instance().counter.get();
+  },
+});
+
+Template.hello.events({
+  'click button'(event, instance) {
+    // increment the counter when button is clicked
+    instance.counter.set(instance.counter.get() + 1);
+  },
+});
+
+}
+ 
+if (Meteor.isServer) {
+  Meteor.startup(function () {
+    // code to run on server at startup
+  });
+}
+
+</code>
+</pre>
+</b>
+</div>
+</li></ul>
+</div>
+
+<p><b> 2.2 main.html </b></p>
+<p allign="justify"> The HTML file contains the templates and views for the app, both styled by main.css. <b> “Blaze” </b> is a templating engine that Meteor uses to render response from HTML pages. Inside each pair of double braces Blaze examines the expressions and replaces each one with the value.In this example Blaze includes a template called “hello” by  
+“{{> hello}}”. In the &lt;template name="hello"&gt; section, corresponding template is defined. </p>
+<div id="comments">
+<ul><li>
+<div class="comcont">
+<p> <b>first_app/client/main.html </b></p>
+  <pre>
+    <code style="color:#0000FF";>
+&lt;head&gt;
+  &lt;title&gt;hello &lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;h1&gt;Welcome to CS6320-Webbased!&lt;/h1&gt;
+  {{&gt; hello}}
+&lt;/body&gt;
+
+&lt;template name="hello"&gt;
+  &lt;button&gt;Click Me&lt;/button&gt;
+  &lt;p&gt;You've pressed the button {{counter}} times.&lt;/p&gt;
+&lt;/template&gt;
+</code>
+</pre>
+</b>
+</div>
+</li></ul>
+</div>
+
+<p><b> 2.3 main.css </b> - /* CSS declarations go here */</p> 
+
+<h3 style="color:red"><b>3. Run Meteor Application</b></h3> 
+
+<p><b>3.1 Deploy locally</b> </p>
+<div id="comments">
+<ul><li>
+<div class="comcont">
+  
+      <p> Start the server by give the below command in the project folder </p>
+
+      <p> <b> <i> $ meteor </i> </b></p> 
+
+        <p>Once the server starts running, You should see the following in your console </p>
+        <p>
+          [[[[[ ~/Meteor_projects/first_app ]]]]] </br>
+
+        => Started proxy.</br>
+        => Started MongoDB.</br>
+        => Started your app.</br>
+
+        => App running at: <a href="http://localhost:3000/"> http://localhost:3000/</a> </br>
+
+        </p>
+        <p> open any web browser to view the application running on <a href="http://localhost:3000/"> http://localhost:3000/</a> </p></br>
+
+        <img  width="500" height="500" src="/Users/florahelan/Desktop/Meteor_project2/images/meteor_pics/Meteor_local.png" >
+</div>
+</li></ul>
+</div>
+
+    <p> <b> 3.2 Delpoy on Meteor’s own servers </b> - This application can be even deployed in Meteor’s own servers using the built-in meteor deploy command </p>
+<div id="comments">
+<ul><li>
+<div class="comcont">
+<p> <b> <i> $ meteor deploy first_app.meteor.com </i> </b></p> 
+</div>
+</li></ul>
+</div>
+
+    <h3 style="color:red"><b>4. Demo</b></h3> 
+
+    <p> Below is the demo of ChatApp application using Meteor</p>
+    <div id="comments">
+<ul><li>
+<div class="comcont">
+<video width="700" height="700" controls>
+  <source src="/Users/florahelan/Desktop/Meteor_project2/images/meteor_pics/An Introduction to Meteor.mp4" type="video/mp4">
+</video>
+</div>
+</li></ul>
+</div>
+</body>
+</html>
