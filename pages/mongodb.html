@@ -1,14 +1,7 @@
 <!DOCTYPE html>
-<!--
-Template Name: Appsea
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
--->
 <html>
 <head>
-<title>METEOR | INTRODUCTION | DDP</title>
+<title>MONGO DB</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
@@ -20,31 +13,36 @@ Licence URI: http://www.os-templates.com/template-terms
 <div class="wrapper row1">
   <header id="header" class="hoc clear"> 
     <!-- ################################################################################################ -->
-    <div id="logo" class="fl_left">
-      <h1><a href="../index.html">DDP</a></h1>
+      
+    <div id="logo" class="fl_left ribbon animated fadeInDown">
+        <a href="../Meteor-js/index.html"><img src="..\images\demo\meteor.jpg"></a>
     </div>
     <nav id="mainav" class="fl_right">
       <ul class="clear">
         <li><a href="../index.html">Home</a></li>
         <li class="active"><a class="drop" href="#">Introduction</a>
           <ul>
-            <li><a href="gallery.html">Meteor</a></li>
-            <li><a href="full-width.html">DDP</a></li>
+            <li><a href="gallery.html">Meteor js</a></li>
             <li class="active"><a href="mongodb.html">MongoDB</a></li>
-            <li><a href="sidebar-right.html">Other Databases</a></li>
+            <li><a href="ddp.html">DDP with Meteor</a></li>
+            <li><a href="otherDbs.html">Other Databases</a></li>
           </ul>
         </li>
-        <li><a href="#">INSTALL</a></li>
-        <li ><a class="drop" href="#">TUTORIALS</a>
+        <li><a class="drop" href="#">Tutorials</a>
           <ul>
-            <li><a href="gallery.html">Meteor</a></li>
-            <li><a href="full-width.html">DDP</a></li>
-            <li><a href="sidebar-left.html">MongoDB</a></li>
-            <li><a href="sidebar-right.html">Other Databases</a></li>
+            <li><a href="#">MongoDB</a></li>
+            <li><a href="#">DDP</a></li>
+            <li><a href="#">Server Side</a></li>
+            <li><a href="#">PostgreSQL</a></li>
+            <li><a href="#">Neo4j</a></li>
+            <li><a href="#">RethinkDB</a></li>
+            <li><a href="#">Oracle</a></li>
+            <li><a href="#">AlaSQL</a></li>
           </ul>
         </li>
-        <li><a href="#">References</a></li>
-        <li><a href="#">Future & Conclusion</a></li>
+        <li><a href="install.html">Installation</a></li>
+        <li><a href="#">Future</a></li>
+        <li><a href="faq.html">FAQ</a></li>
       </ul>
     </nav>
     <!-- ################################################################################################ -->
@@ -73,21 +71,22 @@ Licence URI: http://www.os-templates.com/template-terms
     <!-- ################################################################################################ -->
     <div class="content"> 
       <!-- ################################################################################################ -->
-      <h1><b>Meteor uses MongoDB</b></h1>
-      <p>&nbsp; &nbsp; &nbsp;<b>Meteor</b> follows the concept of <b>Mini Databases</b>. A <b>Mini Database</b> is a mini (lite) version of the normal database that sits in the memory of the client side. What this does is, instead of client sending requests to the server and waiting for it to update, the client can directly change the desired contents in the mini database which automatically syncs with the main server database using <b>Distributed Data Protocol </b>(DDP). When the client notices a change, it updates the change in the mini mongo instance first and checks again the client side and once it’s done then it lets the mini mongo handlers to communicate with the server’s main database through DDP to let server know the change. The server on the other side can accept or reject the changes made by any client. If the server accepts the change then the server sends the changed message to every client who is connected to the server. Also, if the server rejects a change the instance of mini database is corrected.</p>
-    </br>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-    <img class="imgr borderedbox inspace-5" src="../images/mongodb.png" alt =""></br></br></br>
-      <h3></br><b>Advantages of this Structure</b></h3>
+      <h1 style="color:red" class="animated fadeInDown"><b>Meteor uses MongoDB</b></h1>
+      <p><b>Meteor</b> follows the concept of <b>Mini Databases</b>. A <b>Mini Database</b> is a mini (lite) version of the normal database that sits in the memory of the client side. What this does is, instead of client sending requests to the server and waiting for it to update, the client can directly change the desired contents in the mini database which automatically syncs with the main server database using <b>Distributed Data Protocol </b>(DDP). When the client notices a change, it updates the change in the mini mongo instance first and checks again the client side and once it’s done then it lets the mini mongo handlers to communicate with the server’s main database through DDP to let server know the change. The server on the other side can accept or reject the changes made by any client. If the server accepts the change then the server sends the changed message to every client who is connected to the server. Also, if the server rejects a change the instance of mini database is corrected.</p>
+    </br></br>
+    <img class="animated fadeInRight"  class="imgl borderedbox inspace-5"  src="../images/mongodb.png" alt =""></br></br></br>
+  </br></br>
+      <h3 style="color:red" class="animated fadeInDown"></br><b>Advantages of this Structure</b></h3>
             • The whole process is asynchronous and it’s done using DDP which means client doesn’t have to wait for the server response, it can update the code based on the data that is available in the mini database. </br>
             • Once there is any change then the client will be updated immediately which reduce the wait time. </br>
             • Slow internet connection or lost connection doesn’t impact the client like other normal environment. Client doesn’t have to wait for the server permission to make changes. You can work with the data that is available in the mini database and once the lost connection is back, all of the data that is in the queue will be sent all together to the server and the server upon receiving will send authorized changes to the client. </br>
             • Client can take Meteor on faith most of the times the data sent to the server will be broadcasted to all of the connected clients immediately.</br> </p>
       <!-- <img class="imgl borderedbox inspace-5" src="../images/demo/imgl.gif" alt=""> -->
-      <p> &nbsp; &nbsp; &nbsp; By default, every Meteor project comes with a database without any external configuration or setup. For suppose if you create a project then the database shows up automatically once the local server is started. However, this database is not SQL but Mongo database.</p>
-      <p> &nbsp; &nbsp; &nbsp; <b>MongoDB</b> is an open source database that uses a document-oriented data model. MongoDB stores data in JSON-like documents, means that fields and data structure can vary. When it comes to comparison Mongo database is bit different from normal SQL. Mongo uses different names for the most familiar concepts like tables, rows, columns and others. It refers them by collections, documents, fields. a Mongo collection is equivalent to an SQL table. Terminology is different but conceptually it’s the same.</p>
+      <p> By default, every Meteor project comes with a database without any external configuration or setup. For suppose if you create a project then the database shows up automatically once the local server is started. However, this database is not SQL but Mongo database.</p>
+      <p> <b>MongoDB</b> is an open source database that uses a document-oriented data model. MongoDB stores data in JSON-like documents, means that fields and data structure can vary. When it comes to comparison Mongo database is bit different from normal SQL. Mongo uses different names for the most familiar concepts like tables, rows, columns and others. It refers them by collections, documents, fields. a Mongo collection is equivalent to an SQL table. Terminology is different but conceptually it’s the same.</p>
       <!-- <p>Portortornec condimenterdum eget consectetuer condis consequam pretium pellus sed mauris enim. Puruselit mauris nulla hendimentesque elit semper nam a sapien urna sempus.</p> -->
       <div id="comments">
-        <h2></br><b>Create a Collection</b></h2>
+        <h2 style="color:red" class="animated fadeInDown"></br><b>Create a Collection</b></h2>
         <ul>
           <li>
             <article>
@@ -97,7 +96,7 @@ Licence URI: http://www.os-templates.com/template-terms
             </article>
           </li>
           <p>Note : The name for the collection should be Unique otherwise Meteor will throw an error.</p>
-          <h2></br><b>Insert Data</b></h2>
+          <h2 style="color:red" class="animated fadeInDown"></br><b>Insert Data</b></h2>
           <p>Inside the console,</p>
           <li>
             <article>
@@ -125,7 +124,7 @@ Licence URI: http://www.os-templates.com/template-terms
             </article>
           </li>
           <p>Once this function is executed then a row i.e., documents in MONGO db with the given data will be created. Also, Mongo db attaches a new unique id to each and every document. This unique ID is known as Primary Key.</p>
-          <h2></br><b>Retrieve Data</b></h2>
+          <h2 style="color:red" class="animated fadeInDown"></br><b>Retrieve Data</b></h2>
           <p>Inside the console,</p>
           <li>
             <article>
@@ -144,7 +143,7 @@ Licence URI: http://www.os-templates.com/template-terms
             </article>
           </li>
           <p>The above function retrieves the document that has course as ‘CS6320’. If there are multiple documents with the same course name then all of them will be retrieved.</p>
-          <h2></br><b>Update Data</b></h2>
+          <h2 style="color:red" class="animated fadeInDown"></br><b>Update Data</b></h2>
           <p>Inside the console,</p>
           <li>
             <article>
@@ -154,7 +153,7 @@ Licence URI: http://www.os-templates.com/template-terms
             </article>
           </li>
           <p>Above, we can use update a single document by giving the old details and the new entry and seeting it to the old one.</p>
-          <h2></br><b>Delete Data</b></h2>
+          <h2 style="color:red" class="animated fadeInDown"></br><b>Delete Data</b></h2>
           <p>Inside the console,</p>
           <li>
             <article>
