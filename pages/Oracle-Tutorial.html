@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Other DBs</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="../layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row1">
+  <header id="header" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+      
+    <div id="logo" class="fl_left ribbon animated fadeInDown">
+        <a href="../Meteor-js/index.html"><img src="..\images\demo\meteor.jpg"></a>
+    </div>
+    <nav id="mainav" class="fl_right">
+      <ul class="clear">
+        <li><a href="../index.html">Home</a></li>
+        <li class="active"><a class="drop" href="#">Introduction</a>
+          <ul>
+            <li><a href="gallery.html">Meteor js</a></li>
+            <li><a href="mongodb.html">MongoDB</a></li>
+            <li><a href="ddp.html">DDP with Meteor</a></li>
+            <li><a href="otherDbs.html">Other Databases</a></li>
+          </ul>
+        </li>
+        <li><a class="drop" href="#">Tutorials</a>
+          <ul>
+            <li><a href="#">MongoDB</a></li>
+            <li><a href="#">DDP</a></li>
+            <li><a href="#">Server Side</a></li>
+            <li><a href="#">PostgreSQL</a></li>
+            <li><a href="#">Neo4j</a></li>
+            <li><a href="#">RethinkDB</a></li>
+            <li><a href="#">Oracle</a></li>
+            <li><a href="#">AlaSQL</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Installation</a></li>
+        <li><a href="#">Future</a></li>
+      </ul>
+    </nav>
+    <!-- ################################################################################################ -->
+  </header>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+  <div id="breadcrumb" class="hoc clear"> 
+    <!-- ################################################################################################ -->
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Introduction</a></li>
+      <li><a href="#">Other Db's</a></li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+    <div class="content"> 
+      <!-- ################################################################################################ -->
+      <h1 style="color:red" class="animated fadeInDown"><b>Meteor - Oracle Tutorial</b></h1>
+      <img class="imgr borderedbox inspace-5 animated fadeInRight" src="../images/demo/meteororacle.jpg">
+      <p>Oracle Database is an object relational management system which provides many robust features. Some examples for this can be inner join, outer join, full-tet indexes, bitmap indexes, partitioning etc. Meteor-Oracle application client side code behaves almost same as how it behaves with MongoDB and on the server side all the modifictions are implemented. In Meteor, only some features of Oracle are supported and development of support for other features is still in progress. Here are few features of Oracle supported by Meteor. <li>Applications can be connected to Oracle databases that are external.</li><li>The driver automatically creates and maintains all the tables and their indexes.</li><li>Mongo style queries are translated into SQL form by using SQL translator.</li><li>It supports elastic datamodel and oplog tailing.</li></p>
+      <p>In this tutorial we are going to learn how Meteor applications can be built and deployed by accessing its data stored in Oracle database. Following are the process steps of how it can be done.</p>
+      <h1 style="color:red" class="animated fadeInDown"><b>Installation Steps</b></h1>
+        <p>Step-1: Install Oracle database in your local system or get access to external database. You can<a href="http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html">download oracle</a>here.</p>
+        <p>Step-2: Install Oracle instant client from<a href="http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html">here</a>. After installing the instant client, run SQL*PLUS by the following commands to find the version of the database.</p>
+        <div id="comments">
+            <ul><li>
+              <div class="comcont">
+                <p>$ sqlplus<br/><br/>SQL*Plus: Release 12.2.0 Production on Thu Nov 14 15:27:34 2017<br/><br/>Copyright (c) 1982, 2011, Oracle.  All rights reserved.<br/><br/>Enter user-name: Meteor<br/>Enter password: <br/><br/>Connected to:
+Oracle Database 11g Express Edition Release 12.2.0 - 64bit Production<br/>SQL> </p>                           
+                </div>
+            </li></ul>
+        </div>
+        <p>Step-3: In the Oracle database, create account for Meteor. It can be done by the following commands.</p>
+      <div id="comments">
+            <ul><li>
+              <div class="comcont">
+                <p>$ sqlplus sys as sysdba<br/>create user meteor identified by meteor;<br/>grant connect, resource to meteor;</p>                           </div>
+            </li></ul>
+        </div>
+        <p>Step-4: Check if the Meteor account has been created in the Oracle database. It can be done by the following commands.</p>
+        <div id="comments">
+            <ul><li>
+              <div class="comcont">
+                <p>$ sqlplus Meteor/Meteor<br/><br/>SQL*Plus: Release 12.2.0 Production on Thu Nov 14 17:46:26 2017<br/><br/>Copyright (c) 1982, 2011, Oracle.  All rights reserved.<br/><br/>Connected to:Oracle Database 11g Express Edition Release 12.2.0 - 64bit Production
+<br/>SQL>exit</p>                        
+                </div>
+            </li></ul>
+        </div>
+        <p>Step-5: Export Meteor-Oracle package to your Meteor project by using the following commands.</p>
+        <div id="comments">
+            <ul><li>
+              <div class="comcont">
+                <p>$ cd PATH-TO-YOUR-METEOR-PROJECT<br/>$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<PATH-TO-YOUR-ORACLE-INSTANT-CLIENT>/instantclient_11_2/
+<br/>$ meteor add metstrike:meteor-oracle
+<br/>$ meteor</p>                        </div>
+            </li></ul>
+        </div>
+        <h1 style="color:red" class="animated fadeInDown"><b>Example Queries</b></h1>
+        <p>1. SQL statement to create table.</p>
+        <div id="comments">
+            <ul><li>
+              <div class="comcont">
+                <p>create table "todos" ("_id" varchar2(17) not null)</p>                        </div>
+            </li></ul>
+        </div>
+        <p>2. SQL statement to alter the table.</p>
+        <div id="comments">
+            <ul><li>
+              <div class="comcont">
+                <p>alter table "todos" add constraint "todos_PK" primary key ("_id")</p>                        </div>
+            </li></ul>
+        </div>
+        <p>3. SQL statement to insert tuples into the table.</p>
+        <div id="comments">
+            <ul><li>
+              <div class="comcont">
+                <p>INSERT:  todos { name: 'Get milk', priority: 1, userId: 'Jane', _id: '46662dSw2KkzpNXqo' } { safe: true }</p>                        </div>
+            </li></ul>
+        </div>
+        <p>4. SQL statement to select elements based on condition.</p>
+        <div id="comments">
+            <ul><li>
+              <div class="comcont">
+                <p>SELECT * FROM (SELECT * FROM "todos") WHERE "priority" = 1</p>                        </div>
+            </li></ul>
+        </div>
+</body>
+</html>
